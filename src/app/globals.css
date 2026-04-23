@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-epil-bg: #FCFAFA;
+  --color-epil-primary: #F2EBE5;
+  --color-epil-accent: #DABCAE;
+  --color-epil-accent-dark: #C19B86;
+  --color-epil-text: #3A3331;
+  --color-background: var(--color-epil-bg);
+  --color-foreground: var(--color-epil-text);
+  --font-heading: var(--font-cormorant);
+  --font-body: var(--font-montserrat);
+}
+
+:root {
+  --background: #FCFAFA;
+  --foreground: #3A3331;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #FCFAFA; /* Для бьюті-сайту залишаємо світлу тему як основну */
+    --foreground: #3A3331;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
