@@ -216,7 +216,7 @@ export default function Home() {
       </section>
 
       {/* Zones Section */}
-      <section id="zones" className="py-24 px-6 bg-[var(--color-epil-bg)]">
+      <section id="zones" className="py-24 px-6 bg-transparent">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-heading text-4xl md:text-5xl text-[var(--color-epil-text)] mb-4">Зони Епіляції</h2>
@@ -233,7 +233,7 @@ export default function Home() {
               <div 
                 key={i} 
                 onClick={() => setActiveZone(zone)}
-                className="group cursor-pointer aspect-[4/3] sm:aspect-square bg-[var(--color-epil-primary)]/20 rounded-2xl border border-[var(--color-epil-primary)]/60 flex items-center justify-center p-6 text-center transition-all duration-700 hover:bg-[var(--color-epil-primary)]/80 hover:border-[var(--color-epil-accent)] hover:shadow-xl relative overflow-hidden"
+                className="group cursor-pointer aspect-[4/3] sm:aspect-square bg-white/60 backdrop-blur-sm rounded-2xl border border-[var(--color-epil-primary)]/60 flex items-center justify-center p-6 text-center transition-all duration-700 hover:bg-white/80 hover:border-[var(--color-epil-accent)] hover:shadow-xl relative overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-epil-accent)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 <h3 className="font-heading text-lg sm:text-xl md:text-2xl text-[var(--color-epil-text)] tracking-[0.15em] uppercase relative z-10 group-hover:scale-110 transition-transform duration-700">
@@ -246,7 +246,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-24 md:py-32 px-6 bg-[var(--color-epil-primary)]/30">
+      <section id="pricing" className="py-24 md:py-32 px-6 bg-white/30 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-heading text-4xl md:text-5xl text-[var(--color-epil-text)] mb-4">Прайс-лист</h2>
@@ -258,7 +258,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Hourly Rate */}
-            <div className="bg-[var(--color-epil-bg)] rounded-3xl p-8 shadow-sm border border-[var(--color-epil-primary)] hover:border-[var(--color-epil-accent)] transition-colors group">
+            <div className="bg-white/70 backdrop-blur-md rounded-3xl p-8 shadow-sm border border-[var(--color-epil-primary)] hover:border-[var(--color-epil-accent)] transition-colors group">
               <h3 className="font-heading text-2xl text-[var(--color-epil-text)] mb-6 flex items-center gap-3">
                 <CalendarHeart className="text-[var(--color-epil-accent)] group-hover:scale-110 transition-transform" size={24} />
                 За годину роботи
@@ -280,7 +280,7 @@ export default function Home() {
             </div>
 
             {/* Fixed Rate */}
-            <div className="bg-[var(--color-epil-bg)] rounded-3xl p-8 shadow-md border border-[var(--color-epil-accent)] relative overflow-hidden group">
+            <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-md border border-[var(--color-epil-accent)] relative overflow-hidden group">
               <div className="absolute top-0 right-0 bg-[var(--color-epil-accent)] text-white text-[10px] font-bold px-4 py-1.5 rounded-bl-xl uppercase tracking-widest shadow-sm">
                 Популярно
               </div>
@@ -351,7 +351,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 px-6 bg-[var(--color-epil-primary)]/20">
+      <section className="py-24 px-6 bg-white/40 backdrop-blur-md">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-heading text-4xl md:text-5xl text-[var(--color-epil-text)] mb-4">Часті Запитання</h2>
@@ -429,27 +429,39 @@ export default function Home() {
                         <div className="flex items-center gap-2 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                            <InstagramIcon size={18} />
                            <span className="text-sm font-medium tracking-wide">Дивитись</span>
-                        </div>
-                     </div>
-                  </a>
-               ))}
-            </div>
-
-            <a href="https://www.instagram.com/epil.room.poltava?igsh=ZHdhMXZ3bGk3eTZ4" target="_blank" rel="noreferrer" className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-50 to-pink-50 hover:from-purple-100 hover:to-pink-100 text-[var(--color-epil-text)] px-8 py-4 rounded-full text-sm font-medium tracking-wide border border-pink-100 shadow-sm transition-all group hover:scale-105">
-               <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-pink-600 shadow-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-               </div>
-               Підписатися на @epil.room.poltava
-            </a>
-         </div>
-      </section>
-
-      {/* Contacts & Map Section */}
-      <section className="py-24 px-6 bg-[var(--color-epil-primary)]/30">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center">
-          <div className="flex-1 w-full aspect-video md:aspect-square bg-[var(--color-epil-bg)] rounded-[2rem] overflow-hidden shadow-sm border border-[var(--color-epil-primary)] relative">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2586.6669966114175!2d34.520448111956194!3d49.58434775586616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d825f448c90b6b%3A0xc622db66a1a8c9e5!2z0LLRg9C70LjRhtGPINCh0L7QsdC-0YDQvdC-0YHRgtGWLCA2Niwg0J_QvtC70YLQsNCy0LAsINCf0L7Qu9GC0LDQstGB0YzQutCwINC-0LHQu9Cw0YHRgtGMLCAzNjAwMA!5e0!3m2!1suk!2sua!4v1713890000000!5m2!1suk!2sua" 
+                          {/* Footer */}
+      <footer className="w-full bg-transparent py-10 border-t border-[var(--color-epil-primary)] text-center relative z-10">
+        <p className="text-sm text-[var(--color-epil-text)] opacity-50 font-medium">
+          © {new Date().getFullYear()} Savanna Epil Room Poltava. Всі права захищено.
+        </p>
+      </footer>
+      {/* Floating Action Button (Mobile Only) */}
+      <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] w-[90%] pointer-events-none">
+        <button 
+          onClick={() => setIsModalOpen(true)}
+          className="w-full pointer-events-auto bg-[var(--color-epil-text)]/90 backdrop-blur-md text-white py-4 rounded-full text-base font-medium tracking-wide shadow-2xl flex justify-center items-center gap-2"
+        >
+          <CalendarHeart size={20} />
+          Записатися на прийом
+        </button>
+      </div>
+ 
+      {/* Booking Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div 
+            className="absolute inset-0 bg-[var(--color-epil-text)]/40 backdrop-blur-sm"
+            onClick={() => setIsModalOpen(false)}
+          ></div>
+          <div className="relative bg-white/90 backdrop-blur-xl w-full max-w-md rounded-[2rem] p-8 shadow-2xl border border-white/50">
+            <button 
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-6 right-6 text-[var(--color-epil-text)] opacity-50 hover:opacity-100 transition-opacity"
+            >
+              ✕
+            </button>
+            <h3 className="font-heading text-3xl mb-2 text-center text-[var(--color-epil-text)]">Зв'яжіться з нами</h3>
+            <p className="text-center text-sm opacity-70 mb-8 font-light">Оберіть найзручніший спосіб для запису або консультації</p>-0YHRgtGWLCA2Niwg0J_QvtC70YLQsNCy0LAsINCf0L7Qu9GC0LDQstGB0YzQutCwINC-0LHQu9Cw0YHRgtGMLCAzNjAwMA!5e0!3m2!1suk!2sua!4v1713890000000!5m2!1suk!2sua" 
               width="100%" 
               height="100%" 
               style={{border:0}} 

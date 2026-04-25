@@ -152,16 +152,16 @@ export default function MethodPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-32 px-6 text-center bg-white border-t border-[var(--color-epil-primary)]">
+      <section className="py-32 px-6 text-center bg-white/40 backdrop-blur-md border-t border-[var(--color-epil-primary)]">
         <h2 className="font-heading text-4xl md:text-5xl mb-6 text-[var(--color-epil-text)]">Готові позбутися волосся назавжди?</h2>
         <p className="opacity-70 mb-10 max-w-xl mx-auto text-lg">Медицина на вашому боці. Запишіться на першу процедуру та переконайтеся в ефективності особисто.</p>
         <Link href="/" className="inline-block bg-[var(--color-epil-text)] text-white px-12 py-5 rounded-full text-sm font-medium tracking-widest uppercase shadow-2xl hover:bg-black transition-all hover:scale-105">
           Повернутися на Головну та Записатися
         </Link>
       </section>
-
+ 
       {/* Footer */}
-      <footer className="w-full bg-[var(--color-epil-bg)] py-10 border-t border-[var(--color-epil-primary)] text-center">
+      <footer className="w-full bg-transparent py-10 border-t border-[var(--color-epil-primary)] text-center">
         <p className="text-sm text-[var(--color-epil-text)] opacity-50 font-medium">
           © {new Date().getFullYear()} Savanna Epil Room Poltava. Всі права захищено.
         </p>
