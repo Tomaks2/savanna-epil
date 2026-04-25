@@ -58,6 +58,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://savanna-epil.vercel.app",
   },
+  verification: {
+    google: "rWaFsMmA17KKFUG0aaLNTIMtOpvLFygR_6KFV5H1NEc",
+  },
 };
 
 export default function RootLayout({
