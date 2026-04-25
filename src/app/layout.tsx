@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Montserrat } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -124,6 +125,7 @@ export default function RootLayout({
           <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-epil-bg)]/40 via-[var(--color-epil-bg)]/60 to-[var(--color-epil-bg)]"></div>
         </div>
         {children}
+        <Analytics />
       </body>
     </html>
   );
