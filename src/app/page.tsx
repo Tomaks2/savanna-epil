@@ -523,7 +523,7 @@ export default function Home() {
             className="absolute inset-0 bg-[var(--color-epil-text)]/40 backdrop-blur-sm"
             onClick={() => setIsModalOpen(false)}
           ></div>
-          <div className="relative bg-white/90 backdrop-blur-xl w-full max-md rounded-[2rem] p-8 shadow-2xl border border-white/50">
+          <div className="relative bg-white/90 backdrop-blur-xl w-full max-w-md rounded-[2rem] p-8 shadow-2xl border border-white/50">
             <button 
               onClick={() => setIsModalOpen(false)}
               className="absolute top-6 right-6 text-[var(--color-epil-text)] opacity-50 hover:opacity-100 transition-opacity"
