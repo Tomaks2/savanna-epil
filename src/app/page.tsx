@@ -180,7 +180,7 @@ export default function Home() {
       </section>
 
       {/* About Procedure Section (Editorial Style) */}
-      <section id="about" className="py-24 md:py-32 px-6 bg-[var(--color-epil-bg)]">
+      <section id="about" className="py-24 md:py-32 px-6 bg-white/40 backdrop-blur-md">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
           <div className="flex-1 space-y-8">
             <h2 className="font-heading text-4xl md:text-6xl text-[var(--color-epil-text)] leading-tight">
@@ -301,7 +301,7 @@ export default function Home() {
           </div>
             
           {/* Notice */}
-          <div className="bg-[var(--color-epil-bg)] rounded-2xl p-6 text-center border border-[var(--color-epil-primary)]/50 mt-8">
+          <div className="bg-white/40 backdrop-blur-md rounded-2xl p-6 text-center border border-[var(--color-epil-primary)]/50 mt-8">
             <p className="text-sm text-[var(--color-epil-text)] opacity-80 leading-relaxed max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2">
               <ShieldCheck className="text-[var(--color-epil-accent-dark)]" size={20} />
               <span>
@@ -311,8 +311,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       {/* Real Reviews Carousel Section */}
-      <section id="portfolio" className="py-24 px-6 bg-[var(--color-epil-bg)] overflow-hidden">
+      <section id="portfolio" className="py-24 px-6 bg-transparent overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-heading text-4xl md:text-5xl text-[var(--color-epil-text)] mb-4">Відгуки клієнтів</h2>
@@ -330,7 +331,7 @@ export default function Home() {
               { text: "Після трьох сеансів волосся майже не залишилося. Я в захваті від результату і від вашої стерильності. Дякую!", name: "Катерина", zone: "Ноги" },
               { text: "Це найкраще рішення в моєму житті. Ніякого вростання волосся, як після шугарингу. Шкіра гладка і ніжна.", name: "Анна", zone: "Пахви" },
             ].map((review, i) => (
-              <div key={i} className="min-w-[85vw] sm:min-w-[400px] snap-center bg-white p-8 rounded-[2rem] border border-[var(--color-epil-primary)] shadow-sm hover:shadow-md transition-shadow relative flex flex-col justify-between">
+              <div key={i} className="min-w-[85vw] sm:min-w-[400px] snap-center bg-white/70 backdrop-blur-md p-8 rounded-[2rem] border border-[var(--color-epil-primary)] shadow-sm hover:shadow-md transition-shadow relative flex flex-col justify-between">
                 <div>
                   <Star className="text-[var(--color-epil-accent-dark)] mb-4" size={24} />
                   <p className="text-sm md:text-base italic opacity-80 mb-6 leading-relaxed">"{review.text}"</p>
@@ -365,7 +366,7 @@ export default function Home() {
               { q: "Скільки сеансів потрібно?", a: "Для повного видалення волосся НАЗАВЖДИ потрібен курс тривалістю від 1.5 до 2 років регулярних процедур. Це пов'язано з тим, що волосся росте циклами, і ми можемо впливати лише на те волосся, яке зараз знаходиться в активній фазі росту." },
               { q: "Чи залишаються кірочки чи сліди?", a: "При правильній роботі кірочок практично немає, лише легке почервоніння, яке сходить за кілька годин. Я гарантую безпеку та правильний підбір параметрів апарату." }
             ].map((faq, i) => (
-              <div key={i} className="border border-[var(--color-epil-primary)] rounded-2xl overflow-hidden bg-white shadow-sm">
+              <div key={i} className="border border-[var(--color-epil-primary)] rounded-2xl overflow-hidden bg-white/80 shadow-sm">
                 <button 
                   onClick={() => setActiveFaq(activeFaq === i ? null : i)}
                   className="w-full text-left px-6 py-5 font-medium text-[var(--color-epil-text)] flex justify-between items-center hover:bg-[var(--color-epil-primary)]/20 transition-colors"
@@ -382,7 +383,7 @@ export default function Home() {
             ))}
           </div>
           
-          <div className="mt-12 text-center bg-white p-8 rounded-3xl border border-[var(--color-epil-primary)] shadow-sm">
+          <div className="mt-12 text-center bg-white/70 backdrop-blur-md p-8 rounded-3xl border border-[var(--color-epil-primary)] shadow-sm">
             <h4 className="font-heading text-2xl mb-2">Маєте більш серйозне запитання?</h4>
             <p className="text-sm opacity-70 mb-6">Кожен випадок унікальний. Я з радістю проконсультую вас індивідуально.</p>
             <button onClick={() => setIsModalOpen(true)} className="bg-[var(--color-epil-text)] text-white px-8 py-3 rounded-full text-sm font-medium hover:bg-black transition-colors">
@@ -393,7 +394,7 @@ export default function Home() {
       </section>
 
       {/* Before / After Gallery */}
-      <section className="py-24 px-6 bg-[var(--color-epil-primary)]/10">
+      <section className="py-24 px-6 bg-white/20 backdrop-blur-sm">
          <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
                <h2 className="font-heading text-4xl md:text-5xl text-[var(--color-epil-text)] mb-4">До та Після</h2>
@@ -411,7 +412,7 @@ export default function Home() {
       </section>
 
       {/* Instagram Aesthetic Moodboard */}
-      <section className="py-24 px-6 bg-[var(--color-epil-bg)] text-center relative overflow-hidden">
+      <section id="insta" className="py-24 px-6 bg-transparent text-center relative overflow-hidden">
          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-pink-100/30 to-transparent rounded-full blur-3xl -z-10"></div>
          <div className="max-w-6xl mx-auto">
             <h2 className="font-heading text-4xl md:text-5xl text-[var(--color-epil-text)] mb-4">Життя студії в Instagram</h2>
@@ -419,7 +420,7 @@ export default function Home() {
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-12 px-2 md:px-0">
                {[1, 2, 3, 4].map((num) => (
-                  <a key={num} href="https://www.instagram.com/epil.room.poltava?igsh=ZHdhMXZ3bGk3eTZ4" target="_blank" rel="noreferrer" className="aspect-square bg-[var(--color-epil-primary)]/40 rounded-[1.5rem] overflow-hidden relative group block shadow-sm border border-[var(--color-epil-primary)]/50">
+                  <a key={num} href="https://www.instagram.com/epil.room.poltava?igsh=ZHdhMXZ3bGk3eTZ4" target="_blank" rel="noreferrer" className="aspect-square bg-white/40 backdrop-blur-sm rounded-[1.5rem] overflow-hidden relative group block shadow-sm border border-[var(--color-epil-primary)]/50">
                      <div className="absolute inset-0 flex flex-col items-center justify-center text-[var(--color-epil-accent-dark)] p-4 z-0">
                         <InstagramIcon className="opacity-30 mb-2" size={24} />
                         <span className="text-[10px] md:text-xs opacity-50">Збережіть фото як<br/>insta-{num}.jpg</span>
@@ -429,39 +430,27 @@ export default function Home() {
                         <div className="flex items-center gap-2 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                            <InstagramIcon size={18} />
                            <span className="text-sm font-medium tracking-wide">Дивитись</span>
-                          {/* Footer */}
-      <footer className="w-full bg-transparent py-10 border-t border-[var(--color-epil-primary)] text-center relative z-10">
-        <p className="text-sm text-[var(--color-epil-text)] opacity-50 font-medium">
-          © {new Date().getFullYear()} Savanna Epil Room Poltava. Всі права захищено.
-        </p>
-      </footer>
-      {/* Floating Action Button (Mobile Only) */}
-      <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] w-[90%] pointer-events-none">
-        <button 
-          onClick={() => setIsModalOpen(true)}
-          className="w-full pointer-events-auto bg-[var(--color-epil-text)]/90 backdrop-blur-md text-white py-4 rounded-full text-base font-medium tracking-wide shadow-2xl flex justify-center items-center gap-2"
-        >
-          <CalendarHeart size={20} />
-          Записатися на прийом
-        </button>
-      </div>
- 
-      {/* Booking Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          <div 
-            className="absolute inset-0 bg-[var(--color-epil-text)]/40 backdrop-blur-sm"
-            onClick={() => setIsModalOpen(false)}
-          ></div>
-          <div className="relative bg-white/90 backdrop-blur-xl w-full max-w-md rounded-[2rem] p-8 shadow-2xl border border-white/50">
-            <button 
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-6 right-6 text-[var(--color-epil-text)] opacity-50 hover:opacity-100 transition-opacity"
-            >
-              ✕
-            </button>
-            <h3 className="font-heading text-3xl mb-2 text-center text-[var(--color-epil-text)]">Зв'яжіться з нами</h3>
-            <p className="text-center text-sm opacity-70 mb-8 font-light">Оберіть найзручніший спосіб для запису або консультації</p>-0YHRgtGWLCA2Niwg0J_QvtC70YLQsNCy0LAsINCf0L7Qu9GC0LDQstGB0YzQutCwINC-0LHQu9Cw0YHRgtGMLCAzNjAwMA!5e0!3m2!1suk!2sua!4v1713890000000!5m2!1suk!2sua" 
+                        </div>
+                     </div>
+                  </a>
+               ))}
+            </div>
+
+            <a href="https://www.instagram.com/epil.room.poltava?igsh=ZHdhMXZ3bGk3eTZ4" target="_blank" rel="noreferrer" className="inline-flex items-center gap-3 bg-white/60 backdrop-blur-md text-[var(--color-epil-text)] px-8 py-4 rounded-full text-sm font-medium tracking-wide border border-pink-100 shadow-sm transition-all group hover:scale-105">
+               <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-pink-600 shadow-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+               </div>
+               Підписатися на @epil.room.poltava
+            </a>
+         </div>
+      </section>
+
+      {/* Contacts & Map Section */}
+      <section className="py-24 px-6 bg-white/30 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+          <div className="flex-1 w-full aspect-video md:aspect-square bg-white/40 backdrop-blur-md rounded-[2rem] overflow-hidden shadow-sm border border-[var(--color-epil-primary)] relative">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2586.6669966114175!2d34.520448111956194!3d49.58434775586616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d825f448c90b6b%3A0xc622db66a1a8c9e5!2z0LLRg9C70LjRhtGPINCh0L7QsdC-0YDQvdC-0YHRgtGWLCA2Niwg0J_QvtC70YLQsNCy0LAsINCf0L7Qu9GC0LDQstGB0YzQutCwINC-0LHQu9Cw0YHRgtGMLCAzNjAwMA!5e0!3m2!1suk!2sua!4v1713890000000!5m2!1suk!2sua" 
               width="100%" 
               height="100%" 
               style={{border:0}} 
@@ -477,7 +466,7 @@ export default function Home() {
             
             <div className="space-y-6 pt-4">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-[var(--color-epil-bg)] border border-[var(--color-epil-primary)] flex items-center justify-center flex-shrink-0 text-[var(--color-epil-accent-dark)]">
+                <div className="w-12 h-12 rounded-full bg-white/60 border border-[var(--color-epil-primary)] flex items-center justify-center flex-shrink-0 text-[var(--color-epil-accent-dark)]">
                   <MapPin size={20} />
                 </div>
                 <div>
@@ -487,7 +476,7 @@ export default function Home() {
               </div>
               
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-[var(--color-epil-bg)] border border-[var(--color-epil-primary)] flex items-center justify-center flex-shrink-0 text-[var(--color-epil-accent-dark)]">
+                <div className="w-12 h-12 rounded-full bg-white/60 border border-[var(--color-epil-primary)] flex items-center justify-center flex-shrink-0 text-[var(--color-epil-accent-dark)]">
                   <CalendarHeart size={20} />
                 </div>
                 <div>
@@ -510,16 +499,17 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="w-full bg-[var(--color-epil-bg)] py-8 border-t border-[var(--color-epil-primary)] text-center relative z-10">
-        <p className="text-sm text-[var(--color-epil-text)] opacity-50">
+      <footer className="w-full bg-transparent py-10 border-t border-[var(--color-epil-primary)] text-center relative z-10">
+        <p className="text-sm text-[var(--color-epil-text)] opacity-50 font-medium">
           © {new Date().getFullYear()} Savanna Epil Room Poltava. Всі права захищено.
         </p>
       </footer>
+
       {/* Floating Action Button (Mobile Only) */}
       <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] w-[90%] pointer-events-none">
         <button 
           onClick={() => setIsModalOpen(true)}
-          className="w-full pointer-events-auto bg-[var(--color-epil-text)] text-white py-4 rounded-full text-base font-medium tracking-wide shadow-2xl flex justify-center items-center gap-2"
+          className="w-full pointer-events-auto bg-[var(--color-epil-text)]/90 backdrop-blur-md text-white py-4 rounded-full text-base font-medium tracking-wide shadow-2xl flex justify-center items-center gap-2"
         >
           <CalendarHeart size={20} />
           Записатися на прийом
@@ -533,7 +523,7 @@ export default function Home() {
             className="absolute inset-0 bg-[var(--color-epil-text)]/40 backdrop-blur-sm"
             onClick={() => setIsModalOpen(false)}
           ></div>
-          <div className="relative bg-[var(--color-epil-bg)] w-full max-w-md rounded-[2rem] p-8 shadow-2xl">
+          <div className="relative bg-white/90 backdrop-blur-xl w-full max-md rounded-[2rem] p-8 shadow-2xl border border-white/50">
             <button 
               onClick={() => setIsModalOpen(false)}
               className="absolute top-6 right-6 text-[var(--color-epil-text)] opacity-50 hover:opacity-100 transition-opacity"
@@ -583,7 +573,7 @@ export default function Home() {
       {activeZone && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-[var(--color-epil-text)]/40 backdrop-blur-sm" onClick={() => setActiveZone(null)}></div>
-          <div className="relative bg-white w-full max-w-lg rounded-[2rem] overflow-hidden shadow-2xl">
+          <div className="relative bg-white/90 backdrop-blur-xl w-full max-w-lg rounded-[2rem] overflow-hidden shadow-2xl border border-white/50">
             <button onClick={() => setActiveZone(null)} className="absolute top-4 right-4 z-10 w-8 h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-[var(--color-epil-text)] hover:bg-white transition-colors">✕</button>
             <div className="h-48 bg-[var(--color-epil-primary)] relative">
               <img src={zoneDetails[activeZone]?.img || "/about.jpg"} alt={activeZone} className="w-full h-full object-cover opacity-80 mix-blend-multiply" />
@@ -607,7 +597,7 @@ export default function Home() {
       {/* AI Assistant Chat Widget */}
       <div className="fixed bottom-6 right-6 z-[70] flex flex-col items-end pointer-events-none">
         {isChatOpen && (
-          <div className="w-[300px] sm:w-[350px] bg-white rounded-2xl shadow-2xl border border-[var(--color-epil-primary)] overflow-hidden mb-4 pointer-events-auto flex flex-col transform transition-all duration-300 origin-bottom-right">
+          <div className="w-[300px] sm:w-[350px] bg-white/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-[var(--color-epil-primary)] overflow-hidden mb-4 pointer-events-auto flex flex-col transform transition-all duration-300 origin-bottom-right">
             <div className="bg-[var(--color-epil-text)] text-white p-4 flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <Sparkles size={18} className="text-[var(--color-epil-accent)]" />
@@ -616,22 +606,22 @@ export default function Home() {
               <button onClick={() => setIsChatOpen(false)} className="opacity-70 hover:opacity-100">✕</button>
             </div>
             
-            <div className="h-[300px] overflow-y-auto p-4 flex flex-col gap-3 bg-[var(--color-epil-bg)]">
+            <div className="h-[300px] overflow-y-auto p-4 flex flex-col gap-3 bg-transparent">
               {chatMessages.map((msg, idx) => (
-                <div key={idx} className={`max-w-[85%] p-3 rounded-2xl text-sm ${msg.role === 'ai' ? 'bg-white border border-[var(--color-epil-primary)] self-start rounded-tl-sm shadow-sm' : 'bg-[var(--color-epil-accent-dark)] text-white self-end rounded-tr-sm shadow-sm'}`}>
+                <div key={idx} className={`max-w-[85%] p-3 rounded-2xl text-sm ${msg.role === 'ai' ? 'bg-white/80 backdrop-blur-sm border border-[var(--color-epil-primary)] self-start rounded-tl-sm shadow-sm' : 'bg-[var(--color-epil-accent-dark)] text-white self-end rounded-tr-sm shadow-sm'}`}>
                   {msg.text}
                 </div>
               ))}
             </div>
             
-            <div className="p-3 bg-white border-t border-[var(--color-epil-primary)] flex flex-col">
+            <div className="p-3 bg-white/80 backdrop-blur-sm border-t border-[var(--color-epil-primary)] flex flex-col">
               <span className="text-[10px] text-[var(--color-epil-text)] opacity-60 mb-2 font-medium uppercase tracking-wider block">Оберіть запитання:</span>
               <div className="flex flex-col gap-2 max-h-[160px] overflow-y-auto pr-1 custom-scrollbar">
                 {botQuestions.map((item, idx) => (
                   <button 
                     key={idx}
                     onClick={() => setChatMessages([...chatMessages, {role: 'user', text: item.q}, {role: 'ai', text: item.a}])} 
-                    className="text-xs text-left bg-[var(--color-epil-primary)]/50 px-3 py-2.5 rounded-xl hover:bg-[var(--color-epil-accent)] hover:text-white transition-colors"
+                    className="text-xs text-left bg-white/50 px-3 py-2.5 rounded-xl hover:bg-[var(--color-epil-accent)] hover:text-white transition-colors"
                   >
                     {item.q}
                   </button>
