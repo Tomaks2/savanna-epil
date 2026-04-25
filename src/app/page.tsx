@@ -96,7 +96,7 @@ export default function Home() {
   return (
     <main className="flex flex-col min-h-screen relative">
       {/* Header */}
-      <header className="w-full bg-[var(--color-epil-bg)]/90 backdrop-blur-md sticky top-0 z-50 border-b border-[var(--color-epil-primary)]">
+      <header className="w-full bg-white/70 backdrop-blur-md sticky top-0 z-50 border-b border-[var(--color-epil-primary)]">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <a href="#home" className="font-heading text-2xl md:text-3xl tracking-widest uppercase text-[var(--color-epil-text)] font-semibold hover:opacity-80 transition-opacity cursor-pointer">
             Savanna
@@ -136,17 +136,18 @@ export default function Home() {
 
       {/* Hero Section */}
       <section id="home" className="pt-32 pb-20 md:pt-40 md:pb-32 px-6 flex flex-col md:flex-row items-center justify-center min-h-[90vh] relative overflow-hidden">
-        {/* Background Image Overlay */}
-        <div className="absolute inset-0 z-0">
-          <img src="/hero-bg.jpg" alt="Естетика півоній" className="w-full h-full object-cover object-center opacity-40 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-epil-bg)]/40 via-[var(--color-epil-bg)]/60 to-[var(--color-epil-bg)]"></div>
-        </div>
+
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center mt-10 md:mt-0">
-          <span className="flex items-center gap-2 text-[var(--color-epil-accent-dark)] uppercase tracking-[0.2em] text-xs md:text-sm mb-8 font-semibold bg-white/60 px-5 py-2 rounded-full backdrop-blur-md shadow-sm">
-            <MapPin size={16} />
-            Epil Room Poltava
-          </span>
+          <div className="flex flex-col items-center mb-10">
+            <span className="flex items-center gap-2 text-[var(--color-epil-accent-dark)] uppercase tracking-[0.2em] text-xs md:text-sm font-semibold bg-white/60 px-5 py-2 rounded-full backdrop-blur-md shadow-sm mb-3">
+              <MapPin size={16} />
+              Epil Room Poltava
+            </span>
+            <span className="text-[var(--color-epil-text)] opacity-70 uppercase tracking-[0.3em] text-[10px] md:text-xs font-medium">
+              Студія електроепіляції
+            </span>
+          </div>
           <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl text-[var(--color-epil-text)] leading-[1.1] mb-8">
             Гладка шкіра <br className="hidden md:block" /> назавжди
           </h1>

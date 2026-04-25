@@ -5,9 +5,9 @@ import Link from "next/link";
 
 export default function MethodPage() {
   return (
-    <main className="flex flex-col min-h-screen bg-[var(--color-epil-bg)]">
+    <main className="flex flex-col min-h-screen bg-transparent">
       {/* Header */}
-      <header className="w-full bg-[var(--color-epil-bg)]/90 backdrop-blur-md sticky top-0 z-50 border-b border-[var(--color-epil-primary)]">
+      <header className="w-full bg-white/70 backdrop-blur-md sticky top-0 z-50 border-b border-[var(--color-epil-primary)]">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 text-[var(--color-epil-text)] hover:text-[var(--color-epil-accent-dark)] transition-colors font-medium text-xs md:text-sm uppercase tracking-widest">
             <ArrowLeft size={16} />

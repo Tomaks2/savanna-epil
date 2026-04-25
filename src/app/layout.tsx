@@ -117,7 +117,12 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-body min-h-full flex flex-col antialiased">
+      <body className="font-body min-h-full flex flex-col antialiased relative">
+        {/* Global Background Image */}
+        <div className="fixed inset-0 z-[-1] pointer-events-none">
+          <img src="/hero-bg.jpg" alt="" className="w-full h-full object-cover object-center opacity-30 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-epil-bg)]/40 via-[var(--color-epil-bg)]/60 to-[var(--color-epil-bg)]"></div>
+        </div>
         {children}
       </body>
     </html>
