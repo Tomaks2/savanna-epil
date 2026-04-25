@@ -37,10 +37,10 @@ export const metadata: Metadata = {
     siteName: "Savanna Epil Room Poltava",
     images: [
       {
-        url: "https://savanna-epil.vercel.app/about.jpg",
+        url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Естетика електроепіляції Savanna Полтава",
+        alt: "Savanna Epil Room Poltava - Гладка шкіра назавжди",
       },
     ],
     locale: "uk_UA",
@@ -56,6 +56,11 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
   alternates: {
     canonical: "https://savanna-epil.vercel.app",
