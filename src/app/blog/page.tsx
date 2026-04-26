@@ -1,5 +1,3 @@
-"use client";
-
 import Link from 'next/link';
 import { blogPosts } from '@/lib/blog-posts';
 
@@ -146,6 +144,7 @@ export default function BlogPage() {
             style={{ textDecoration: 'none' }}
           >
             <article
+              className="blog-card"
               style={{
                 background: 'rgba(255,255,255,0.03)',
                 backdropFilter: 'blur(12px)',
@@ -156,18 +155,6 @@ export default function BlogPage() {
                 transition: 'all 0.3s ease',
                 position: 'relative',
                 overflow: 'hidden',
-              }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget;
-                el.style.background = 'rgba(201,169,110,0.06)';
-                el.style.borderColor = 'rgba(201,169,110,0.3)';
-                el.style.transform = 'translateY(-4px)';
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget;
-                el.style.background = 'rgba(255,255,255,0.03)';
-                el.style.borderColor = 'rgba(255,255,255,0.08)';
-                el.style.transform = 'translateY(0)';
               }}
             >
               {/* Glow accent */}

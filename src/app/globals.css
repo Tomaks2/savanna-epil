@@ -38,6 +38,13 @@ body {
   font-family: var(--font-montserrat), sans-serif;
 }
 
+/* Blog Cards Hover Effects */
+.blog-card:hover {
+  background: rgba(201, 169, 110, 0.06) !important;
+  border-color: rgba(201, 169, 110, 0.3) !important;
+  transform: translateY(-4px);
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
