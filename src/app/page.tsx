@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { CalendarHeart, Star, MapPin, ShieldCheck, Sparkles, MessageCircle, Phone, Menu, X } from "lucide-react";
 
 const InstagramIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
@@ -107,7 +108,7 @@ export default function Home() {
             <a href="/method" className="text-[var(--color-epil-accent-dark)] font-bold hover:opacity-80 transition-opacity flex items-center gap-1">Про метод</a>
             <a href="#pricing" className="hover:text-[var(--color-epil-accent-dark)] transition-colors">Прайс</a>
             <a href="#portfolio" className="hover:text-[var(--color-epil-accent-dark)] transition-colors">Відгуки та результати</a>
-            <a href="/blog" className="hover:text-[var(--color-epil-accent-dark)] transition-colors">Блог</a>
+            <Link href="/blog" className="hover:text-[var(--color-epil-accent-dark)] transition-colors">Блог</Link>
           </nav>
           <button 
             onClick={() => setIsModalOpen(true)}
@@ -131,7 +132,7 @@ export default function Home() {
             <a href="/method" className="text-xl tracking-widest text-[var(--color-epil-accent-dark)] uppercase font-bold flex items-center gap-2"><Sparkles size={20}/> Про метод</a>
             <a href="#pricing" onClick={() => setIsMobileMenuOpen(false)} className="text-xl tracking-widest text-[var(--color-epil-text)] uppercase font-medium">Прайс</a>
             <a href="#portfolio" onClick={() => setIsMobileMenuOpen(false)} className="text-xl tracking-widest text-[var(--color-epil-text)] uppercase font-medium text-center">Відгуки<br/>та результати</a>
-            <a href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-xl tracking-widest text-[var(--color-epil-text)] uppercase font-medium">Блог</a>
+            <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-xl tracking-widest text-[var(--color-epil-text)] uppercase font-medium">Блог</Link>
           </div>
         )}
       </header>
