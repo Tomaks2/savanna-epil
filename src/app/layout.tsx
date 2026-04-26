@@ -72,6 +72,22 @@ export default function RootLayout({
     <html lang="uk" className={`${cormorant.variable} ${montserrat.variable} h-full scroll-smooth`}>
       <head>
         <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              document.addEventListener('contextmenu', e => e.preventDefault());
+              document.addEventListener('keydown', e => {
+                if (
+                  (e.ctrlKey && (e.key === 'c' || e.key === 'v' || e.key === 'u' || e.key === 's')) || 
+                  e.key === 'F12' || 
+                  (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))
+                ) {
+                  e.preventDefault();
+                }
+              });
+            `
+          }}
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
