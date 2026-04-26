@@ -1,19 +1,10 @@
+"use client";
+
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { useState, use, useEffect } from 'react';
 import { getPostBySlug, blogPosts, BlogSection } from '@/lib/blog-posts';
-
-export async function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
-}
-
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug);
-  if (!post) return {};
-  return {
-    title: `${post.title} | Savanna Blog`,
-    description: post.excerpt,
-  };
-}
+import { MessageCircle, Phone, X } from 'lucide-react';
 
 /* ─────────────────── SECTION RENDERERS ─────────────────── */
 
@@ -25,11 +16,11 @@ function renderSection(section: BlogSection, idx: number) {
           key={idx}
           style={{
             fontFamily: "var(--font-montserrat)",
-            fontSize: '17px',
+            fontSize: '18px',
             lineHeight: 1.9,
-            color: 'rgba(240,230,208,0.75)',
+            color: 'rgba(58,51,49,0.85)',
             fontWeight: 300,
-            marginBottom: '20px',
+            marginBottom: '28px',
           }}
         >
           {section.data.text as string}
@@ -39,7 +30,7 @@ function renderSection(section: BlogSection, idx: number) {
     case 'section': {
       const d = section.data as { number: string; title: string; text: string };
       return (
-        <div key={idx} style={{ margin: '56px 0 28px' }}>
+        <div key={idx} style={{ margin: '64px 0 32px' }}>
           <div
             style={{
               fontFamily: "var(--font-montserrat)",
@@ -47,8 +38,8 @@ function renderSection(section: BlogSection, idx: number) {
               fontWeight: 600,
               letterSpacing: '3px',
               textTransform: 'uppercase' as const,
-              color: '#c9a96e',
-              marginBottom: '10px',
+              color: '#C19B86',
+              marginBottom: '12px',
             }}
           >
             Розділ {d.number}
@@ -56,13 +47,13 @@ function renderSection(section: BlogSection, idx: number) {
           <h2
             style={{
               fontFamily: "var(--font-cormorant)",
-              fontSize: 'clamp(22px, 3.5vw, 34px)',
+              fontSize: 'clamp(24px, 4vw, 38px)',
               fontWeight: 500,
-              color: '#f0e6d0',
+              color: '#3A3331',
               lineHeight: 1.2,
-              marginBottom: '24px',
-              paddingLeft: '20px',
-              borderLeft: '3px solid #c9a96e',
+              marginBottom: '28px',
+              paddingLeft: '24px',
+              borderLeft: '4px solid #DABCAE',
             }}
           >
             {d.title}
@@ -70,9 +61,9 @@ function renderSection(section: BlogSection, idx: number) {
           <p
             style={{
               fontFamily: "var(--font-montserrat)",
-              fontSize: '15.5px',
+              fontSize: '16.5px',
               lineHeight: 1.85,
-              color: 'rgba(240,230,208,0.65)',
+              color: 'rgba(58,51,49,0.75)',
               fontWeight: 300,
             }}
           >
@@ -88,19 +79,19 @@ function renderSection(section: BlogSection, idx: number) {
         <blockquote
           key={idx}
           style={{
-            borderTop: '1px solid rgba(201,169,110,0.4)',
-            borderBottom: '1px solid rgba(201,169,110,0.4)',
-            padding: '32px 0',
-            margin: '44px 0',
+            borderTop: '1px solid rgba(193,155,134,0.3)',
+            borderBottom: '1px solid rgba(193,155,134,0.3)',
+            padding: '40px 0',
+            margin: '56px 0',
             textAlign: 'center',
           }}
         >
           <p
             style={{
               fontFamily: "var(--font-cormorant)",
-              fontSize: 'clamp(20px, 2.8vw, 28px)',
+              fontSize: 'clamp(22px, 3vw, 32px)',
               fontStyle: 'italic',
-              color: '#e8d5b0',
+              color: '#C19B86',
               lineHeight: 1.5,
               whiteSpace: 'pre-line',
             }}
@@ -119,17 +110,18 @@ function renderSection(section: BlogSection, idx: number) {
         caption?: string;
       };
       return (
-        <div key={idx} style={{ margin: '36px 0', overflowX: 'auto' }}>
+        <div key={idx} style={{ margin: '48px 0', overflowX: 'auto' }}>
           <table
             style={{
               width: '100%',
               borderCollapse: 'collapse',
               fontFamily: "var(--font-montserrat)",
-              fontSize: '13.5px',
-              background: 'rgba(255,255,255,0.03)',
-              backdropFilter: 'blur(8px)',
-              borderRadius: '6px',
+              fontSize: '14px',
+              background: '#ffffff',
+              borderRadius: '16px',
               overflow: 'hidden',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.04)',
+              border: '1px solid rgba(193,155,134,0.1)',
             }}
           >
             <thead>
@@ -138,14 +130,14 @@ function renderSection(section: BlogSection, idx: number) {
                   <th
                     key={i}
                     style={{
-                      padding: '16px 18px',
+                      padding: '20px 24px',
                       textAlign: 'left',
-                      fontWeight: 500,
+                      fontWeight: 600,
                       letterSpacing: '0.5px',
-                      fontSize: '12px',
-                      color: i === d.winnerCol ? '#c9a96e' : 'rgba(240,230,208,0.9)',
-                      background: 'rgba(255,255,255,0.05)',
-                      borderBottom: '1px solid rgba(255,255,255,0.08)',
+                      fontSize: '11px',
+                      textTransform: 'uppercase',
+                      color: i === d.winnerCol ? '#C19B86' : 'rgba(58,51,49,0.9)',
+                      background: '#F2EBE5',
                     }}
                   >
                     {h}
@@ -158,22 +150,22 @@ function renderSection(section: BlogSection, idx: number) {
                 <tr
                   key={ri}
                   style={{
-                    borderBottom: ri < d.rows.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
+                    borderBottom: ri < d.rows.length - 1 ? '1px solid rgba(193,155,134,0.05)' : 'none',
                   }}
                 >
                   {row.map((cell, ci) => (
                     <td
                       key={ci}
                       style={{
-                        padding: '14px 18px',
+                        padding: '18px 24px',
                         color:
                           ci === d.winnerCol
-                            ? '#c9a96e'
+                            ? '#C19B86'
                             : ci === 0
-                            ? 'rgba(240,230,208,0.85)'
-                            : 'rgba(240,230,208,0.5)',
+                            ? '#3A3331'
+                            : 'rgba(58,51,49,0.6)',
                         fontWeight: ci === d.winnerCol ? 600 : ci === 0 ? 500 : 300,
-                        background: ci === d.winnerCol ? 'rgba(201,169,110,0.06)' : 'transparent',
+                        background: ci === d.winnerCol ? 'rgba(193,155,134,0.03)' : 'transparent',
                       }}
                     >
                       {cell}
@@ -188,9 +180,9 @@ function renderSection(section: BlogSection, idx: number) {
               style={{
                 fontFamily: "var(--font-montserrat)",
                 fontSize: '12px',
-                color: 'rgba(240,230,208,0.3)',
+                color: 'rgba(58,51,49,0.4)',
                 textAlign: 'center',
-                marginTop: '10px',
+                marginTop: '16px',
                 fontStyle: 'italic',
                 fontWeight: 300,
               }}
@@ -208,12 +200,11 @@ function renderSection(section: BlogSection, idx: number) {
         <div
           key={idx}
           style={{
-            background: 'rgba(201,169,110,0.06)',
-            border: '1px solid rgba(201,169,110,0.2)',
-            borderLeft: '3px solid #c9a96e',
-            padding: '24px 28px',
-            borderRadius: '0 4px 4px 0',
-            margin: '32px 0',
+            background: '#F2EBE5',
+            borderLeft: '4px solid #DABCAE',
+            padding: '28px 32px',
+            borderRadius: '0 16px 16px 0',
+            margin: '40px 0',
           }}
         >
           <div
@@ -223,8 +214,8 @@ function renderSection(section: BlogSection, idx: number) {
               letterSpacing: '2.5px',
               textTransform: 'uppercase' as const,
               fontWeight: 600,
-              color: '#c9a96e',
-              marginBottom: '10px',
+              color: '#C19B86',
+              marginBottom: '12px',
             }}
           >
             {d.label}
@@ -232,8 +223,8 @@ function renderSection(section: BlogSection, idx: number) {
           <p
             style={{
               fontFamily: "var(--font-montserrat)",
-              fontSize: '14.5px',
-              color: 'rgba(240,230,208,0.75)',
+              fontSize: '15.5px',
+              color: '#3A3331',
               lineHeight: 1.75,
               fontWeight: 300,
               margin: 0,
@@ -251,8 +242,8 @@ function renderSection(section: BlogSection, idx: number) {
         <div
           key={idx}
           style={{
-            margin: '32px 0',
-            paddingLeft: '28px',
+            margin: '40px 0',
+            paddingLeft: '32px',
             position: 'relative',
           }}
         >
@@ -264,33 +255,33 @@ function renderSection(section: BlogSection, idx: number) {
               top: '8px',
               bottom: '8px',
               width: '1px',
-              background: 'linear-gradient(to bottom, #c9a96e, rgba(201,169,110,0.15))',
+              background: 'linear-gradient(to bottom, #DABCAE, rgba(218,188,174,0.15))',
             }}
           />
           {d.items.map((item, i) => (
-            <div key={i} style={{ position: 'relative', marginBottom: '28px' }}>
+            <div key={i} style={{ position: 'relative', marginBottom: '32px' }}>
               {/* dot */}
               <div
                 style={{
                   position: 'absolute',
-                  left: '-25px',
+                  left: '-29px',
                   top: '6px',
                   width: '10px',
                   height: '10px',
                   borderRadius: '50%',
-                  background: '#c9a96e',
-                  boxShadow: '0 0 8px rgba(201,169,110,0.5)',
+                  background: '#DABCAE',
+                  boxShadow: '0 0 10px rgba(218,188,174,0.3)',
                 }}
               />
               <div
                 style={{
                   fontFamily: "var(--font-montserrat)",
-                  fontSize: '10px',
+                  fontSize: '11px',
                   fontWeight: 600,
                   letterSpacing: '1.5px',
                   textTransform: 'uppercase' as const,
-                  color: '#c9a96e',
-                  marginBottom: '6px',
+                  color: '#C19B86',
+                  marginBottom: '8px',
                 }}
               >
                 {item.label}
@@ -298,8 +289,8 @@ function renderSection(section: BlogSection, idx: number) {
               <p
                 style={{
                   fontFamily: "var(--font-montserrat)",
-                  fontSize: '14.5px',
-                  color: 'rgba(240,230,208,0.6)',
+                  fontSize: '15px',
+                  color: 'rgba(58,51,49,0.7)',
                   lineHeight: 1.75,
                   fontWeight: 300,
                   margin: 0,
@@ -316,31 +307,31 @@ function renderSection(section: BlogSection, idx: number) {
     case 'numberedlist': {
       const d = section.data as { items: { title: string; text: string }[] };
       return (
-        <ul key={idx} style={{ listStyle: 'none', margin: '24px 0', padding: 0 }}>
+        <ul key={idx} style={{ listStyle: 'none', margin: '32px 0', padding: 0 }}>
           {d.items.map((item, i) => (
             <li
               key={i}
               style={{
                 display: 'flex',
-                gap: '18px',
+                gap: '20px',
                 alignItems: 'flex-start',
-                marginBottom: '22px',
+                marginBottom: '24px',
               }}
             >
               <div
                 style={{
                   flexShrink: 0,
-                  width: '32px',
-                  height: '32px',
-                  background: 'linear-gradient(135deg, #c9a96e, #e8d5b0)',
-                  color: '#0a0a0a',
+                  width: '36px',
+                  height: '36px',
+                  background: '#DABCAE',
+                  color: '#ffffff',
                   fontFamily: "var(--font-cormorant)",
-                  fontSize: '16px',
+                  fontSize: '18px',
                   fontWeight: 700,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  borderRadius: '2px',
+                  borderRadius: '12px',
                   marginTop: '2px',
                 }}
               >
@@ -352,9 +343,9 @@ function renderSection(section: BlogSection, idx: number) {
                     display: 'block',
                     fontFamily: "var(--font-montserrat)",
                     fontWeight: 600,
-                    fontSize: '14px',
-                    color: '#f0e6d0',
-                    marginBottom: '4px',
+                    fontSize: '15px',
+                    color: '#3A3331',
+                    marginBottom: '6px',
                     letterSpacing: '0.3px',
                   }}
                 >
@@ -363,8 +354,8 @@ function renderSection(section: BlogSection, idx: number) {
                 <span
                   style={{
                     fontFamily: "var(--font-montserrat)",
-                    fontSize: '14px',
-                    color: 'rgba(240,230,208,0.55)',
+                    fontSize: '15px',
+                    color: 'rgba(58,51,49,0.65)',
                     lineHeight: 1.75,
                     fontWeight: 300,
                   }}
@@ -384,22 +375,23 @@ function renderSection(section: BlogSection, idx: number) {
         <div
           key={idx}
           style={{
-            background: 'rgba(201,169,110,0.07)',
-            border: '1px solid rgba(201,169,110,0.2)',
-            borderRadius: '6px',
-            padding: '44px 40px',
-            margin: '52px 0',
+            background: '#ffffff',
+            border: '1px solid rgba(193,155,134,0.2)',
+            borderRadius: '24px',
+            padding: '48px 40px',
+            margin: '64px 0',
             position: 'relative',
             overflow: 'hidden',
+            boxShadow: '0 10px 40px rgba(0,0,0,0.03)',
           }}
         >
           <div
             style={{
               position: 'absolute',
-              right: '28px',
-              top: '16px',
-              fontSize: '72px',
-              color: 'rgba(201,169,110,0.08)',
+              right: '32px',
+              top: '24px',
+              fontSize: '80px',
+              color: 'rgba(193,155,134,0.1)',
               fontFamily: "var(--font-cormorant)",
               lineHeight: 1,
             }}
@@ -409,10 +401,10 @@ function renderSection(section: BlogSection, idx: number) {
           <h3
             style={{
               fontFamily: "var(--font-cormorant)",
-              fontSize: 'clamp(20px, 2.5vw, 28px)',
+              fontSize: 'clamp(24px, 3vw, 32px)',
               fontWeight: 500,
-              color: '#e8d5b0',
-              marginBottom: '16px',
+              color: '#3A3331',
+              marginBottom: '20px',
             }}
           >
             {d.title}
@@ -420,8 +412,8 @@ function renderSection(section: BlogSection, idx: number) {
           <p
             style={{
               fontFamily: "var(--font-montserrat)",
-              fontSize: '15px',
-              color: 'rgba(240,230,208,0.6)',
+              fontSize: '16px',
+              color: 'rgba(58,51,49,0.7)',
               lineHeight: 1.85,
               fontWeight: 300,
               margin: 0,
@@ -440,70 +432,7 @@ function renderSection(section: BlogSection, idx: number) {
         buttonText: string;
         buttonHref: string;
       };
-      return (
-        <div
-          key={idx}
-          style={{
-            textAlign: 'center',
-            padding: '48px 0 0',
-            borderTop: '1px solid rgba(255,255,255,0.06)',
-            margin: '0',
-          }}
-        >
-          <p
-            style={{
-              fontFamily: "var(--font-cormorant)",
-              fontSize: 'clamp(20px, 2.5vw, 26px)',
-              fontStyle: 'italic',
-              color: '#f0e6d0',
-              marginBottom: '14px',
-            }}
-          >
-            {d.question}
-          </p>
-          <p
-            style={{
-              fontFamily: "var(--font-montserrat)",
-              fontSize: '13.5px',
-              color: 'rgba(240,230,208,0.45)',
-              marginBottom: '36px',
-              lineHeight: 1.75,
-              fontWeight: 300,
-            }}
-          >
-            {d.sub}
-          </p>
-          <Link
-            href={d.buttonHref}
-            style={{
-              display: 'inline-block',
-              fontFamily: "var(--font-montserrat)",
-              fontSize: '12px',
-              fontWeight: 600,
-              letterSpacing: '2.5px',
-              textTransform: 'uppercase' as const,
-              color: '#0a0a0a',
-              background: 'linear-gradient(135deg, #c9a96e, #e8d5b0)',
-              padding: '17px 44px',
-              borderRadius: '2px',
-              textDecoration: 'none',
-            }}
-          >
-            {d.buttonText}
-          </Link>
-          <p
-            style={{
-              marginTop: '18px',
-              fontFamily: "var(--font-montserrat)",
-              fontSize: '12px',
-              color: 'rgba(240,230,208,0.3)',
-              fontWeight: 300,
-            }}
-          >
-            Зробіть перший крок до гладкості, яка залишиться з вами назавжди.
-          </p>
-        </div>
-      );
+      return null; // We handle global CTA below for consistency
     }
 
     default:
@@ -513,16 +442,20 @@ function renderSection(section: BlogSection, idx: number) {
 
 /* ─────────────────── PAGE ─────────────────── */
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug);
+export default function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const post = getPostBySlug(slug);
+
   if (!post) notFound();
 
   return (
     <main
       style={{
         minHeight: '100vh',
-        background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1209 50%, #0a0a0a 100%)',
-        paddingBottom: '100px',
+        background: '#FCFAFA',
+        paddingBottom: '120px',
+        color: '#3A3331',
       }}
     >
       {/* ── NAV ── */}
@@ -532,18 +465,24 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           alignItems: 'center',
           justifyContent: 'space-between',
           padding: '24px 40px',
-          borderBottom: '1px solid rgba(255,255,255,0.06)',
+          borderBottom: '1px solid rgba(58,51,49,0.06)',
+          background: 'rgba(252,250,250,0.8)',
+          backdropFilter: 'blur(10px)',
+          position: 'sticky',
+          top: 0,
+          zIndex: 50,
         }}
       >
         <Link
           href="/"
           style={{
             fontFamily: "var(--font-cormorant)",
-            fontSize: '22px',
+            fontSize: '24px',
             fontWeight: 600,
-            color: '#e8d5b0',
+            color: '#3A3331',
             textDecoration: 'none',
             letterSpacing: '1px',
+            textTransform: 'uppercase',
           }}
         >
           Savanna
@@ -556,7 +495,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             fontWeight: 500,
             letterSpacing: '2px',
             textTransform: 'uppercase' as const,
-            color: 'rgba(232,213,176,0.6)',
+            color: 'rgba(58,51,49,0.6)',
             textDecoration: 'none',
           }}
         >
@@ -567,9 +506,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       {/* ── POST HEADER ── */}
       <header
         style={{
-          maxWidth: '760px',
+          maxWidth: '800px',
           margin: '0 auto',
-          padding: '64px 24px 40px',
+          padding: '80px 24px 48px',
           textAlign: 'center',
         }}
       >
@@ -579,8 +518,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '14px',
-            marginBottom: '28px',
+            gap: '16px',
+            marginBottom: '32px',
           }}
         >
           <span
@@ -590,10 +529,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               fontWeight: 600,
               letterSpacing: '2.5px',
               textTransform: 'uppercase' as const,
-              color: '#c9a96e',
-              border: '1px solid rgba(201,169,110,0.35)',
-              padding: '5px 14px',
-              borderRadius: '2px',
+              color: '#C19B86',
+              background: '#F2EBE5',
+              padding: '6px 16px',
+              borderRadius: '100px',
             }}
           >
             {post.category}
@@ -601,8 +540,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <span
             style={{
               fontFamily: "var(--font-montserrat)",
-              fontSize: '11px',
-              color: 'rgba(240,230,208,0.35)',
+              fontSize: '12px',
+              color: 'rgba(58,51,49,0.4)',
               fontWeight: 300,
             }}
           >
@@ -612,13 +551,13 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
         <h1
           style={{
-            fontFamily: "'Cormorant Garamond', serif",
-            fontSize: 'clamp(28px, 5vw, 52px)',
+            fontFamily: "var(--font-cormorant)",
+            fontSize: 'clamp(32px, 6vw, 64px)',
             fontWeight: 400,
-            color: '#f0e6d0',
-            lineHeight: 1.15,
-            marginBottom: '20px',
-            letterSpacing: '-0.3px',
+            color: '#3A3331',
+            lineHeight: 1.1,
+            marginBottom: '28px',
+            letterSpacing: '-0.5px',
           }}
         >
           {post.title}
@@ -627,11 +566,13 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         <p
           style={{
             fontFamily: "var(--font-montserrat)",
-            fontSize: '15px',
-            color: 'rgba(240,230,208,0.45)',
+            fontSize: '17px',
+            color: 'rgba(58,51,49,0.5)',
             fontStyle: 'italic',
             fontWeight: 300,
             lineHeight: 1.7,
+            maxWidth: '600px',
+            margin: '0 auto',
           }}
         >
           {post.subtitle}
@@ -643,26 +584,134 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '16px',
-            marginTop: '44px',
+            gap: '20px',
+            marginTop: '56px',
           }}
         >
-          <div style={{ width: '80px', height: '1px', background: 'rgba(201,169,110,0.25)' }} />
-          <span style={{ color: '#c9a96e', fontSize: '12px' }}>✦</span>
-          <div style={{ width: '80px', height: '1px', background: 'rgba(201,169,110,0.25)' }} />
+          <div style={{ width: '100px', height: '1px', background: 'rgba(193,155,134,0.2)' }} />
+          <span style={{ color: '#C19B86', fontSize: '14px' }}>✦</span>
+          <div style={{ width: '100px', height: '1px', background: 'rgba(193,155,134,0.2)' }} />
         </div>
       </header>
 
       {/* ── POST BODY ── */}
       <article
         style={{
-          maxWidth: '720px',
+          maxWidth: '760px',
           margin: '0 auto',
-          padding: '0 24px 60px',
+          padding: '0 24px 80px',
         }}
       >
         {post.content.map((section, idx) => renderSection(section, idx))}
+
+        {/* ── CUSTOM BOTTOM CTA ── */}
+        <div
+          style={{
+            textAlign: 'center',
+            padding: '64px 0 0',
+            borderTop: '1px solid rgba(58,51,49,0.06)',
+            marginTop: '40px',
+          }}
+        >
+          <p
+            style={{
+              fontFamily: "var(--font-cormorant)",
+              fontSize: 'clamp(24px, 3vw, 30px)',
+              fontStyle: 'italic',
+              color: '#3A3331',
+              marginBottom: '16px',
+            }}
+          >
+            Зробіть перший крок до гладкості назавжди
+          </p>
+          <p
+            style={{
+              fontFamily: "var(--font-montserrat)",
+              fontSize: '14.5px',
+              color: 'rgba(58,51,49,0.5)',
+              marginBottom: '40px',
+              lineHeight: 1.75,
+              fontWeight: 300,
+            }}
+          >
+            Я з радістю проконсультую вас і відповім на всі питання особисто.
+          </p>
+          <button
+            onClick={() => setIsModalOpen(true)}
+            style={{
+              display: 'inline-block',
+              fontFamily: "var(--font-montserrat)",
+              fontSize: '13px',
+              fontWeight: 600,
+              letterSpacing: '2.5px',
+              textTransform: 'uppercase' as const,
+              color: '#ffffff',
+              background: '#DABCAE',
+              padding: '18px 48px',
+              borderRadius: '100px',
+              border: 'none',
+              cursor: 'pointer',
+              transition: 'all 0.3s',
+              boxShadow: '0 4px 15px rgba(218,188,174,0.3)',
+            }}
+          >
+            Записатися на консультацію
+          </button>
+        </div>
       </article>
+
+      {/* Booking Modal */}
+      {isModalOpen && (
+        <div style={{ position: 'fixed', inset: 0, zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px' }}>
+          <div 
+            style={{ position: 'absolute', inset: 0, background: 'rgba(58,51,49,0.4)', backdropFilter: 'blur(4px)' }}
+            onClick={() => setIsModalOpen(false)}
+          ></div>
+          <div style={{ position: 'relative', background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(20px)', width: '100%', maxWidth: '448px', borderRadius: '32px', padding: '32px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)', border: '1px solid white' }}>
+            <button 
+              onClick={() => setIsModalOpen(false)}
+              style={{ position: 'absolute', top: '24px', right: '24px', background: 'none', border: 'none', fontSize: '20px', cursor: 'pointer', opacity: 0.5 }}
+            >
+              ✕
+            </button>
+            <h3 style={{ fontFamily: "var(--font-cormorant)", fontSize: '28px', marginBottom: '8px', textAlign: 'center', color: '#3A3331' }}>Зв'яжіться з нами</h3>
+            <p style={{ textAlign: 'center', fontSize: '14px', opacity: 0.7, marginBottom: '32px', fontWeight: 300 }}>Оберіть найзручніший спосіб для запису або консультації</p>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <a href="https://www.instagram.com/epil.room.poltava?igsh=ZHdhMXZ3bGk3eTZ4" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '16px', borderRadius: '16px', background: 'linear-gradient(to right, #faf5ff, #fdf2f8)', textDecoration: 'none', border: '1px solid #fce7f3' }}>
+                <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#db2777', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                </div>
+                <span style={{ fontWeight: 500, color: '#3A3331' }}>Instagram Direct</span>
+              </a>
+              
+              <a href="https://t.me/toma0787" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '16px', borderRadius: '16px', background: '#eff6ff', textDecoration: 'none', border: '1px solid #dbeafe' }}>
+                <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#3b82f6', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}>
+                  <MessageCircle size={20} />
+                </div>
+                <span style={{ fontWeight: 500, color: '#3A3331' }}>Telegram</span>
+              </a>
+
+              <a href="viber://chat?number=%2B380959072684" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '16px', borderRadius: '16px', background: '#f5f3ff', textDecoration: 'none', border: '1px solid #ede9fe' }}>
+                <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#7c3aed', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}>
+                  <MessageCircle size={20} />
+                </div>
+                <span style={{ fontWeight: 500, color: '#3A3331' }}>Viber</span>
+              </a>
+
+              <a href="tel:+380959072684" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '16px', borderRadius: '16px', background: '#f9fafb', textDecoration: 'none', border: '1px solid #f3f4f6' }}>
+                <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#374151', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}>
+                  <Phone size={20} />
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <span style={{ fontWeight: 500, color: '#3A3331' }}>Зателефонувати</span>
+                  <span style={{ fontSize: '12px', opacity: 0.6 }}>095 907 26 84</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
