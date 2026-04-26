@@ -12,6 +12,14 @@
   --font-body: var(--font-montserrat);
 }
 
+@layer base {
+  :root {
+    --font-cormorant-name: 'Cormorant Garamond';
+    --font-montserrat-name: 'Montserrat';
+  }
+}
+
+
 :root {
   --background: #FCFAFA;
   --foreground: #3A3331;
