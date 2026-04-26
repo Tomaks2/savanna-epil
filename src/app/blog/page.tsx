@@ -12,7 +12,7 @@ export default function BlogPage() {
     <main
       style={{
         minHeight: '100vh',
-        background: '#FCFAFA',
+        background: 'transparent',
         paddingBottom: '100px',
         color: '#3A3331',
       }}
@@ -54,7 +54,7 @@ export default function BlogPage() {
             fontWeight: 500,
             letterSpacing: '2px',
             textTransform: 'uppercase' as const,
-            color: 'rgba(58,51,49,0.6)',
+            color: 'rgba(58,51,49,0.85)',
             textDecoration: 'none',
             transition: 'color 0.2s',
           }}
@@ -93,7 +93,7 @@ export default function BlogPage() {
           style={{
             fontFamily: "var(--font-cormorant)",
             fontSize: 'clamp(40px, 6vw, 82px)',
-            fontWeight: 300,
+            fontWeight: 400,
             color: '#3A3331',
             lineHeight: 1.1,
             letterSpacing: '-0.5px',
@@ -108,11 +108,11 @@ export default function BlogPage() {
           style={{
             fontFamily: "var(--font-montserrat)",
             fontSize: '16px',
-            color: 'rgba(58,51,49,0.7)',
+            color: 'rgba(58,51,49,0.95)',
             maxWidth: '520px',
             margin: '0 auto',
             lineHeight: 1.8,
-            fontWeight: 300,
+            fontWeight: 400,
           }}
         >
           Статті про електроепіляцію, вибір методів та догляд за шкірою — без води та маркетингу.
@@ -198,7 +198,7 @@ export default function BlogPage() {
                     fontFamily: "var(--font-montserrat)",
                     fontSize: '11px',
                     color: 'rgba(58,51,49,0.4)',
-                    fontWeight: 300,
+                    fontWeight: 400,
                   }}
                 >
                   {post.readTime}
@@ -224,9 +224,9 @@ export default function BlogPage() {
                 style={{
                   fontFamily: "var(--font-montserrat)",
                   fontSize: '14.5px',
-                  color: 'rgba(58,51,49,0.6)',
+                  color: 'rgba(58,51,49,0.85)',
                   lineHeight: 1.8,
-                  fontWeight: 300,
+                  fontWeight: 400,
                   marginBottom: '32px',
                   flexGrow: 1,
                 }}

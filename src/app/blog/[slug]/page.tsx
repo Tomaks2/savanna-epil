@@ -19,7 +19,7 @@ function renderSection(section: BlogSection, idx: number) {
             fontSize: '18px',
             lineHeight: 1.9,
             color: 'rgba(58,51,49,0.85)',
-            fontWeight: 300,
+            fontWeight: 400,
             marginBottom: '28px',
           }}
         >
@@ -63,8 +63,8 @@ function renderSection(section: BlogSection, idx: number) {
               fontFamily: "var(--font-montserrat)",
               fontSize: '16.5px',
               lineHeight: 1.85,
-              color: 'rgba(58,51,49,0.75)',
-              fontWeight: 300,
+              color: 'rgba(58,51,49,0.95)',
+              fontWeight: 400,
             }}
           >
             {d.text}
@@ -184,7 +184,7 @@ function renderSection(section: BlogSection, idx: number) {
                 textAlign: 'center',
                 marginTop: '16px',
                 fontStyle: 'italic',
-                fontWeight: 300,
+                fontWeight: 400,
               }}
             >
               {d.caption}
@@ -226,7 +226,7 @@ function renderSection(section: BlogSection, idx: number) {
               fontSize: '15.5px',
               color: '#3A3331',
               lineHeight: 1.75,
-              fontWeight: 300,
+              fontWeight: 400,
               margin: 0,
             }}
           >
@@ -292,7 +292,7 @@ function renderSection(section: BlogSection, idx: number) {
                   fontSize: '15px',
                   color: 'rgba(58,51,49,0.7)',
                   lineHeight: 1.75,
-                  fontWeight: 300,
+                  fontWeight: 400,
                   margin: 0,
                 }}
               >
@@ -355,9 +355,9 @@ function renderSection(section: BlogSection, idx: number) {
                   style={{
                     fontFamily: "var(--font-montserrat)",
                     fontSize: '15px',
-                    color: 'rgba(58,51,49,0.65)',
+                    color: 'rgba(58,51,49,0.85)',
                     lineHeight: 1.75,
-                    fontWeight: 300,
+                    fontWeight: 400,
                   }}
                 >
                   {item.text}
@@ -415,7 +415,7 @@ function renderSection(section: BlogSection, idx: number) {
               fontSize: '16px',
               color: 'rgba(58,51,49,0.7)',
               lineHeight: 1.85,
-              fontWeight: 300,
+              fontWeight: 400,
               margin: 0,
             }}
           >
@@ -453,7 +453,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
     <main
       style={{
         minHeight: '100vh',
-        background: '#FCFAFA',
+        background: 'transparent',
         paddingBottom: '120px',
         color: '#3A3331',
       }}
@@ -542,7 +542,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
               fontFamily: "var(--font-montserrat)",
               fontSize: '12px',
               color: 'rgba(58,51,49,0.4)',
-              fontWeight: 300,
+              fontWeight: 400,
             }}
           >
             {post.readTime}
@@ -567,9 +567,9 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
           style={{
             fontFamily: "var(--font-montserrat)",
             fontSize: '17px',
-            color: 'rgba(58,51,49,0.5)',
+            color: 'rgba(58,51,49,0.7)',
             fontStyle: 'italic',
-            fontWeight: 300,
+            fontWeight: 400,
             lineHeight: 1.7,
             maxWidth: '600px',
             margin: '0 auto',
@@ -628,7 +628,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
             style={{
               fontFamily: "var(--font-montserrat)",
               fontSize: '14.5px',
-              color: 'rgba(58,51,49,0.5)',
+              color: 'rgba(58,51,49,0.7)',
               marginBottom: '40px',
               lineHeight: 1.75,
               fontWeight: 300,
