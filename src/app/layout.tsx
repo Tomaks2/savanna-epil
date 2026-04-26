@@ -17,6 +17,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://savanna-epil.vercel.app'),
   title: "Savanna | Електроепіляція Полтава та область | Видалення волосся назавжди",
   description: "Професійна студія електроепіляції Savanna в Полтаві. Гарантоване видалення волосся назавжди (100% результат). Дипломований майстер Тома, абсолютна стерильність (сухожар), без болю. Електроепіляція обличчя, бікіні, пахв. Приймаємо клієнтів з Полтави та Полтавської області.",
   keywords: [
@@ -35,14 +36,6 @@ export const metadata: Metadata = {
     description: "Професійна студія електроепіляції Savanna в Полтаві. Гарантоване видалення волосся назавжди (100% результат). Безпечно, стерильно, назавжди.",
     url: "https://savanna-epil.vercel.app",
     siteName: "Savanna Epil Room Poltava",
-    images: [
-      {
-        url: "/opengraph-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Savanna Epil Room Poltava - Гладка шкіра назавжди",
-      },
-    ],
     locale: "uk_UA",
     type: "website",
   },
@@ -57,13 +50,13 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  icons: {
-    icon: "/icon.png",
-    shortcut: "/icon.png",
-    apple: "/icon.png",
-  },
   alternates: {
     canonical: "https://savanna-epil.vercel.app",
+  },
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/favicon.ico",
+    apple: "/icon.png",
   },
   verification: {
     google: "DAvUsi8wbakBT6_pfJi2SrWJy6d9i4T6yZoT_0MNPas",
